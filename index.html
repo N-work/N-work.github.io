@@ -39,6 +39,13 @@ var Question = [
 "3. @",
 "2"]
 ];
+["王様がはいと返事をしていくところはどこ？",
+"1.ハイキング",
+"2.キャバクラ",
+"3.Yes高須クリニック",
+"1"],
+];
+
 
 // 初期変数定義
 // 問題を表示するオブジェクトを取得する
@@ -47,7 +54,7 @@ var Q = document.getElementById('_question');
 var A1 = document.getElementById('_ans1');
 var A2 = document.getElementById('_ans2');
 var A3 = document.getElementById('_ans3');
- 
+var A4 = document.getElenentByid('_ans4'); 
 
 // 正解数を保持する値
 var Correct = 0;
@@ -64,6 +71,7 @@ Q.innerHTML = Question[Qcnt][0];
 A1.innerHTML = Question[Qcnt][1];
 A2.innerHTML = Question[Qcnt][2];
 A3.innerHTML = Question[Qcnt][3];
+A4.innerHTML = Question[Qunt][4];
 };
 
 // 回答ボタンを押したときの処理
@@ -80,6 +88,7 @@ Q.innerHTML = "問題は以上です。正解数は" + Correct + "でした。";
 A1.innerHTML = "";
 A2.innerHTML = "";
 A3.innerHTML = "";
+A4.innerHTML = "";
 } else {
 Q_Set();
 }
