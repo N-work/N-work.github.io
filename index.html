@@ -3,10 +3,11 @@
 <html>
 <head>
 <title>JavaScriptでクイズアプリを作る</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 </head>
 <body>
 <!--タイトル-->
-<h1>クイズアプリを作ってみよう！！！</h1>
+<h1>プログラミングの試しクイズアプリ！（スマホで動く保証なし）スマホで動いた人　まじでそのスマホ神ですね　まあみんなにはこれが1回で解けるとは思わないが　1回で全問解けた人　マジその人は神です</h1>
 <!--クイズのの表示-->
 <h2 id="_question">ここに問題が表示されます。</h2>
 <!--回答-->
@@ -18,34 +19,76 @@
 <button type="button" id="_answer_1" onclick="Answer_Check(1)">回答1</button>
 <button type="button" id="_answer_2" onclick="Answer_Check(2)">回答2</button>
 <button type="button" id="_answer_3" onclick="Answer_Check(3)">回答3</button>
- 
 
 <script type="text/javascript">
 // 初期画面起動時
 var Question = [
-["JavaScriptで「Hello World」を正しく表示されないのはどれ？",
-"1. document.write('Hello World');",
-"2. document.write(Hello World);",
-"3. document.write('Hello World')",
-"1"],
-["JavaScriptで【document.write(5 + 4);】を実行したらどうなる？",
-"1. 5 + 4);",
-"2. エラーになる",
-"3. 9",
+["1 屋上から人が飛び降りた。だがけがをしなかった。なぜ？",
+"1. トランポリンがあった",
+"2. 1階建てだから",    
+"3. 飛び降りてないから",
+"2"],
+["2 10階建てのビルのエレベーターが落ちた。だがけが人が出なかった。なぜ？？",
+"1. エレベーター自体がないから",
+"2. 安全装置がついてるから",
+"3. 乗っていなかったから",
 "3"],
-["JavaScriptで余りを求めるのは？",
-"1. /",
-"2. %",
-"3. @",
-"2"]
-];
-["王様がはいと返事をしていくところはどこ？",
+["3 果物の集会がある。10人集まる。休みはなし。出席したのは何人？",
+"1. 10",
+"2. 9",
+"3. 0",
+"2"],
+["4 王様がはいと返事をしていくところはどこ？",
 "1.ハイキング",
 "2.キャバクラ",
 "3.Yes高須クリニック",
 "1"],
+["5 あなたは200円持っています。100円のものを買うとおつりはいくらでしょう？",
+"1.100円",
+"2.200円",
+"3.0円",
+"3"],
+["6 しゃっくりはある調味料をなめると止まります。ある調味料とはなんでしょう？",
+"1.砂糖",
+"2.塩",
+"3.ポン酢",
+"1"],
+["7 折り紙の日はいつでしょうか？",
+"1.8月16日",
+"2.11月11日",
+"3.6月20日",
+"2"],
+["8 周囲はみな敵である‘‘という意味の四字熟語はどれになるでしょうか？",
+"1.四面楚歌（しめんそか",
+"2.二束三文（にそくさんもん",
+"3.付和雷同（ふわらいどう",
+"1"],
+["9 えんぴつでかいた、「え」や「じ」をけすごむってなーんだ？",
+"1.消しゴム",
+"2.ヘアゴム",
+"3.絵ゴム",
+"1"],
+["10 ガムはあるものと一緒に食べると溶けてなくなってしまいます。あるものとは？",
+"1.ミンティア",
+"2.チョコレート",
+"3.ガム",
+"2"],
+["11 A君が四角い庭に木を植えようとしました。ですが友達はやめた方がいいといいました。なぜでしょう？",
+"1.木で影が出来るから",
+"2.困るから",
+"3.四角くないから",
+"2"],
+["12 腹黒い人が正月に買うものは？",
+"1.掛け布団",
+"2.洗剤",
+"3.福袋",
+"3"],
+["13 かる家具を買うと点数に加点された。その家具は何？",
+"1.カーテン",
+"2.かき氷製造機",
+"3.電子レンジ",
+"1"], 
 ];
-
 
 // 初期変数定義
 // 問題を表示するオブジェクトを取得する
@@ -54,9 +97,18 @@ var Q = document.getElementById('_question');
 var A1 = document.getElementById('_ans1');
 var A2 = document.getElementById('_ans2');
 var A3 = document.getElementById('_ans3');
-var A4 = document.getElenentByid('_ans4'); 
+var A4 = document.getElementById('_ans4');
+var A5 = document.getElementById('_ans5');
+var A6 = document.getElementById('_ans6');
+var A7 = document.getElementById('_ans7');
+var A8 = document.getElementById('_ans8');
+var A9 = document.getElementById('_ans9');
+var A10 = document.getElementById('_ans10');
+var A11 = document.getElementById('_ans11');
+var A12 = document.getElementById('_ans12');
+var A13 = document.getElementById('_ans13');
 
-// 正解数を保持する値
+ // 正解数を保持する値
 var Correct = 0;
 
 // 現在の問題数
@@ -71,7 +123,16 @@ Q.innerHTML = Question[Qcnt][0];
 A1.innerHTML = Question[Qcnt][1];
 A2.innerHTML = Question[Qcnt][2];
 A3.innerHTML = Question[Qcnt][3];
-A4.innerHTML = Question[Qunt][4];
+A4.innerHTML = Question[Qcnt][4];
+A5.innerHTML = Question[Qcnt][5];
+A6.innerHTML = Question[Qcnt][6];
+A7.innerHTML = Question[Qcnt][7];
+A8.innerHTML = Question[Qcut][8];
+A9.innerHTML = Question[Qcnt][9];
+A10.innerHTML = Question[Qcnt][10];
+A11.innerHTML = Question[Qcnt][11];
+A12.innerHTML = Question[Qcnt][12];
+A13.innerHTML = Question[Qcnt][13];
 };
 
 // 回答ボタンを押したときの処理
@@ -89,6 +150,15 @@ A1.innerHTML = "";
 A2.innerHTML = "";
 A3.innerHTML = "";
 A4.innerHTML = "";
+A5.innerHTML = "";
+A6.innerHTML = "";
+A7.innerHTML = "";
+A8.innerHTML = "";
+A9.innerHTML = "";
+A10.innerHTML = "";
+A11.innerHTML = "";
+A12.innerHTML = "";
+A13.innerHTML = "";
 } else {
 Q_Set();
 }
